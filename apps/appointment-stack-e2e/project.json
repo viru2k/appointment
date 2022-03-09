@@ -1,0 +1,28 @@
+{
+  "root": "apps/appointment-stack-e2e",
+  "sourceRoot": "apps/appointment-stack-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/appointment-stack-e2e/cypress.json",
+        "devServerTarget": "appointment-stack:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "appointment-stack:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/appointment-stack-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["appointment-stack"]
+}

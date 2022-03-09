@@ -1,0 +1,94 @@
+{
+  "projectType": "application",
+  "root": "apps/appointment-stack",
+  "sourceRoot": "apps/appointment-stack/src",
+  "prefix": "appointment",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/appointment-stack",
+        "index": "apps/appointment-stack/src/index.html",
+        "main": "apps/appointment-stack/src/main.ts",
+        "polyfills": "apps/appointment-stack/src/polyfills.ts",
+        "tsConfig": "apps/appointment-stack/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/appointment-stack/src/favicon.ico",
+          "apps/appointment-stack/src/assets"
+        ],
+        "styles": ["apps/appointment-stack/src/styles.scss"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/appointment-stack/src/environments/environment.ts",
+              "with": "apps/appointment-stack/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "appointment-stack:build:production"
+        },
+        "development": {
+          "browserTarget": "appointment-stack:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "appointment-stack:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/appointment-stack/src/**/*.ts",
+          "apps/appointment-stack/src/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/appointment-stack"],
+      "options": {
+        "jestConfig": "apps/appointment-stack/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

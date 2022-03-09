@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "appointment-stack": "apps/appointment-stack",
+    "appointment-stack-e2e": "apps/appointment-stack-e2e"
+  }
+}
