@@ -1,4 +1,4 @@
-{ 
+{
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@appointment/ui": ["libs/ui/src/index.ts"],
+      "@cripto/models": ["libs/models/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

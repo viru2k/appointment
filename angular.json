@@ -1,7 +1,12 @@
 {
   "version": 2,
   "projects": {
+    "appointment-api": "apps/appointment-api",
     "appointment-stack": "apps/appointment-stack",
-    "appointment-stack-e2e": "apps/appointment-stack-e2e"
+    "appointment-stack-e2e": "apps/appointment-stack-e2e",
+    "ionic-manager": "apps/ionic-manager",
+    "ionic-manager-e2e": "apps/ionic-manager-e2e",
+    "models": "libs/models",
+    "ui": "libs/ui"
   }
 }
