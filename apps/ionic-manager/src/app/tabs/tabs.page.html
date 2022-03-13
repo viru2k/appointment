@@ -3,18 +3,27 @@
 
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="tab1">
-      <ion-icon name="triangle"></ion-icon>
-      <ion-label>Tab 1</ion-label>
+      <fa-icon [icon]="['fas', 'volume-up']" size="2x"></fa-icon>
+
+      <ion-label><small>Llamar</small></ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="tab2">
-      <ion-icon name="ellipse"></ion-icon>
-      <ion-label>Tab 2</ion-label>
+      <fa-icon [icon]="['fas', 'list-check']" size="2x"></fa-icon>
+
+      <ion-label><small>Pendientes</small></ion-label>
     </ion-tab-button>
 
     <ion-tab-button tab="tab3">
-      <ion-icon name="square"></ion-icon>
-      <ion-label>Tab 3</ion-label>
+      <fa-icon [icon]="['fas', 'id-card']" size="2x"></fa-icon>
+
+      <ion-label><small>Atendidos</small></ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="tab1">
+      <fa-icon [icon]="['fas', 'cog']" size="2x"></fa-icon>
+
+      <ion-label><small>Ajustes</small></ion-label>
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>
