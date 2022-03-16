@@ -1,0 +1,144 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/": {
+      "get": {
+        "operationId": "AppController_getData",
+        "parameters": [],
+        "responses": { "200": { "description": "" } }
+      }
+    },
+    "/appointments": {
+      "get": {
+        "operationId": "AppointmentsController_getAllAppointments",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Creates new user object.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/CurrentAppointment" }
+                }
+              }
+            }
+          },
+          "403": { "description": "Forbiden" }
+        },
+        "tags": ["Appointments"]
+      },
+      "post": {
+        "operationId": "AppointmentsController_postAppointment",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NewAppointent" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "The resource has been  successfully created"
+          },
+          "403": { "description": "Forbiden" }
+        },
+        "tags": ["Appointments"]
+      },
+      "put": {
+        "operationId": "AppointmentsController_putAppointment",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CurrentAppointment" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The resource has been  successfully updated"
+          },
+          "403": { "description": "Forbiden" }
+        },
+        "tags": ["Appointments"]
+      }
+    },
+    "/appointments/{id}": {
+      "get": {
+        "operationId": "AppointmentsController_getAppointmentsByPOS",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": { "description": "The results element has been correct" },
+          "403": { "description": "Forbiden" }
+        },
+        "tags": ["Appointments"]
+      }
+    }
+  },
+  "info": {
+    "title": "Cats example",
+    "description": "The cats API description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [{ "name": "cats", "description": "" }],
+  "servers": [],
+  "components": {
+    "schemas": {
+      "CurrentAppointment": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "description": { "type": "string" },
+          "status": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "CANCELED",
+                "PRESENT",
+                "ABSENT",
+                "CALLING",
+                "ATENDENDED"
+              ]
+            }
+          }
+        },
+        "required": ["id", "status"]
+      },
+      "NewAppointent": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "status": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "PENDING",
+                "CANCELED",
+                "PRESENT",
+                "ABSENT",
+                "CALLING",
+                "ATENDENDED"
+              ]
+            }
+          }
+        },
+        "required": ["status"]
+      }
+    }
+  }
+}
