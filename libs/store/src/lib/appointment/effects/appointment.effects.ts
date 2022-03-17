@@ -1,5 +1,3 @@
-import { AppointmentsService } from '@appointment/api';
-
 // Angular
 import { Injectable } from '@angular/core';
 
@@ -14,11 +12,10 @@ import { map, catchError, exhaustMap, switchMap } from 'rxjs/operators';
 import { AppointmentActions } from '../actions/action-types';
 
 // API
-
-//import { AppointmentsService } from '@appointment/api/services';
+import { AppointmentsService } from '@appointment/api';
 
 import { sharedActions } from '../../shared/actions/action-types';
-import { CurrentAppointment } from '@appointment/models';
+import { NewAppointent, CurrentAppointment } from '@appointment/models';
 
 // Show/hide spinner actions
 const SHOW_LOADER_ACTIONS = [AppointmentActions.getAppointments];

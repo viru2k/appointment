@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 
-import { Appointment } from '@cripto/models';
 import { NewAppointent } from './dto/new-appointment.dto';
 import { CurrentAppointment } from './dto/current-appointment.dto';
 
