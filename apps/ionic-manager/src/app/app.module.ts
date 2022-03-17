@@ -18,6 +18,14 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
+// Store
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterSerializer } from './store/shared/router-serializer';
+import { AppointmentsStoreModule } from './store/peliculas/appointment.module';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -27,6 +35,15 @@ import { fab } from '@fortawesome/free-brands-svg-icons';
     IonicModule.forRoot(),
     AppRoutingModule,
     FontAwesomeModule,
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 30,
+    }),
+    StoreRouterConnectingModule.forRoot({
+      serializer: RouterSerializer,
+    }),
+    AppointmentsStoreModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
