@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseAppointmentsFacade } from '../store/peliculas/appointment.facade';
+import { BaseAppointmentsFacade } from '@appointment/store';
 
 @Component({
   selector: 'appointment-tab1',
@@ -10,6 +10,7 @@ export class Tab1Page implements OnInit {
   constructor(public appointmentsFacade: BaseAppointmentsFacade) {}
 
   ngOnInit(): void {
+    console.log('loadong');
     this.appointmentsFacade.loadViewData();
   }
 }

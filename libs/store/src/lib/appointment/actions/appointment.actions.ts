@@ -1,8 +1,8 @@
 // Ngrx
 import { createAction, props } from '@ngrx/store';
-import { CurrentAppointment, NewAppointent } from '@appointment/models';
 
 // API
+import { NewAppointent, CurrentAppointment } from '@appointment/models';
 
 // VIEW DATA REQUEST ACTIONS
 export const getAppointments = createAction('[Appointments] Get Appointments');

@@ -1,6 +1,5 @@
 // Ngrx
 import { createReducer, on, Action } from '@ngrx/store';
-import { RouterReducerState } from '@ngrx/router-store';
 
 // Store
 import { AppointmentActions } from '../actions/action-types';
@@ -12,7 +11,7 @@ export interface AppointmentsDataState {
 }
 
 export const initialState: AppointmentsDataState = {
-  appointments: null,
+  appointments: [],
 };
 
 const AppointmentsReducer = createReducer(
@@ -43,12 +42,12 @@ export function AppointmentsReducerFunction(
 // FORM VIEW STATE
 export interface AppointmentsFormState {
   appointmentList: CurrentAppointment[];
-  selectedAppointment: CurrentAppointment;
+  // selectedAppointment: CurrentAppointment;
 }
 
 export const initialFormState: AppointmentsFormState = {
-  appointmentList: null,
-  selectedAppointment: null,
+  appointmentList: [],
+  //  selectedAppointment: null,
 };
 
 const AppointmentsFormReducer = createReducer(
