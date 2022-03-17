@@ -5,7 +5,6 @@ import { Body, Controller, Get, Post, Param, Put } from '@nestjs/common';
 import { AppointmentsService } from './appointments.service';
 
 //Model
-import { Appointment } from '@cripto/models';
 import { NewAppointent } from './dto/new-appointment.dto';
 import { CurrentAppointment } from './dto/current-appointment.dto';
 import {
