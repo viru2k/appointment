@@ -15,10 +15,11 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@appointment/store": ["libs/store/src/index.ts"],
-      "@appointment/ui": ["libs/ui/src/index.ts"],
+      "@appointment/api": ["libs/api/src/index.ts"],
       "@appointment/models": ["libs/api/src/index-model.ts"],
-      "@appointment/api": ["libs/api/src/index.ts"]
+      "@appointment/store": ["libs/store/src/index.ts"],
+      "@appointment/translations": ["libs/translations/src/index.ts"],
+      "@appointment/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

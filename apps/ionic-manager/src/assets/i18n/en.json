@@ -1,0 +1,4 @@
+{
+  "appoints.menu": "Appointments",
+  "dynamic": " {{totalAppointments}} Pending Appointments"
+}
