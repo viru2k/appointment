@@ -12,7 +12,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
 
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
+    .setTitle('APPOINTMENT API')
     .setDescription('The cats API description')
     .setVersion('1.0')
     .addTag('cats')

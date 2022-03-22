@@ -1,9 +1,9 @@
 export enum AppointmentStatusEnums {
-  'PENDING',
-  'CANCELED',
-  'PRESENT',
-  'ABSENT',
-  'CALLING',
-  'ATENDENDED',
+  PENDING =   'PENDING',
+  CANCELED=   'CANCELED',
+  PRESENT =   'PRESENT',
+  ABSEN =   'ABSENT',
+  CALLING =   'CALLING',
+  ATENDENDED =  'ATENDENDED',
 }
 

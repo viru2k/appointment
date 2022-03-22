@@ -1,12 +1,16 @@
-import { AppointmentEntity } from './entities/appointment.entity';
+//Nest
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
 
-import { NewAppointent } from './dto/new-appointment.dto';
-import { CurrentAppointment } from './dto/current-appointment.dto';
+// Entity
+import { Appointment } from './entities/appointment.entity';
+
+// Repository
 import { AppointmentRepository } from './repositories/appointment.repository';
 
-//TypeOrm
-import { InjectRepository } from '@nestjs/typeorm';
+// DTO
+import { NewAppointent } from './dto/new-appointment.dto';
+import { CurrentAppointment } from './dto/current-appointment.dto';
 
 @Injectable()
 export class AppointmentsService {
@@ -15,12 +19,12 @@ export class AppointmentsService {
     private appointmentRepository: AppointmentRepository
   ) {}
 
-  async getAllAppointemnts(): Promise<AppointmentEntity[]> {
+  async getAllAppointemnts(): Promise<Appointment[]> {
     const appointment = this.appointmentRepository.find();
     return appointment;
   }
 
-  async getAppointmenById(id: string): Promise<AppointmentEntity> {
+  async getAppointmenById(id: string): Promise<Appointment> {
     const appointment = this.appointmentRepository.findOneOrFail(id);
     return appointment;
   }
@@ -31,14 +35,8 @@ export class AppointmentsService {
 
   async newAppointment(
     createAppoinmentDto: NewAppointent
-  ): Promise<AppointmentEntity> {
-    const { description, status } = createAppoinmentDto;
-    const newAppointentElement = this.appointmentRepository.create({
-      description,
-      status,
-    });
-    await this, this.appointmentRepository.save(newAppointentElement);
-    return newAppointentElement;
+  ): Promise<Appointment> {
+    return this.appointmentRepository.newAppontment(createAppoinmentDto);
   }
   /*
   updateAppointment(

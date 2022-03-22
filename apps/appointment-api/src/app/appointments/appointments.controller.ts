@@ -7,7 +7,7 @@ import { AppointmentsService } from './appointments.service';
 //Model
 import { NewAppointent } from './dto/new-appointment.dto';
 import { CurrentAppointment } from './dto/current-appointment.dto';
-import { AppointmentEntity } from './entities/appointment.entity';
+import { Appointment } from './entities/appointment.entity';
 import {
   ApiCreatedResponse,
   ApiForbiddenResponse,
@@ -29,14 +29,14 @@ export class AppointmentsController {
     description: 'Creates new user object.',
   })
   @ApiForbiddenResponse({ description: 'Forbiden' })
-  getAllAppointments(): Promise<AppointmentEntity[]> {
+  getAllAppointments(): Promise<Appointment[]> {
     return this.appointmentsService.getAllAppointemnts();
   }
 
   @Get('/:id')
   @ApiOkResponse({ description: 'The results element has been correct' })
   @ApiForbiddenResponse({ description: 'Forbiden' })
-  getAppointmentsByPOS(@Param('id') id: string): Promise<AppointmentEntity> {
+  getAppointmentsByPOS(@Param('id') id: string): Promise<Appointment> {
     return this.appointmentsService.getAppointmenById(id);
   }
 
@@ -47,7 +47,7 @@ export class AppointmentsController {
   @ApiForbiddenResponse({ description: 'Forbiden' })
   postAppointment(
     @Body() newAppointentDto: NewAppointent
-  ): Promise<AppointmentEntity> {
+  ): Promise<Appointment> {
     return this.appointmentsService.newAppointment(newAppointentDto);
   }
   /* 
