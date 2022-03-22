@@ -38,18 +38,12 @@ export class AppointmentsService {
   ): Promise<Appointment> {
     return this.appointmentRepository.newAppontment(createAppoinmentDto);
   }
-  /*
-  updateAppointment(
+
+  async putAppointment(
+    id: string,
     currentAppointment: CurrentAppointment
-  ): CurrentAppointment {
-    const { id, description, status } = currentAppointment;
-    const updateAppointmentElement: CurrentAppointment = {
-      id,
-      description,
-      status,
-    };
-
-
-    return updateAppointmentElement;
-  } */
+  ): Promise<Appointment> {
+    const appintment = await this.getAppointmenById(id);
+    return this.appointmentRepository.putAppointment(currentAppointment);
+  }
 }

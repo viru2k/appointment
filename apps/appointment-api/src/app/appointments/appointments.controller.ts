@@ -1,5 +1,5 @@
 //Agular
-import { Body, Controller, Get, Post, Param, Put } from '@nestjs/common';
+import { Body, Controller, Get, Post, Param, Put, Patch } from '@nestjs/common';
 
 //Services
 import { AppointmentsService } from './appointments.service';
@@ -50,15 +50,14 @@ export class AppointmentsController {
   ): Promise<Appointment> {
     return this.appointmentsService.newAppointment(newAppointentDto);
   }
-  /* 
-  @Put()
+
+  @Patch('/:id')
   @ApiOkResponse({ description: 'The resource has been  successfully updated' })
   @ApiForbiddenResponse({ description: 'Forbiden' })
   putAppointment(
+    @Param('id') id: string,
     @Body() currentAppointment: CurrentAppointment
-  ): CurrentAppointment {
-    return <CurrentAppointment>(
-      this.appointmentsService.updateAppointment(currentAppointment)
-    );
-  } */
+  ): Promise<Appointment> {
+    return this.appointmentsService.putAppointment(id, currentAppointment);
+  }
 }
