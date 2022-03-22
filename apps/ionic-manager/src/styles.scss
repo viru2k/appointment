@@ -26,3 +26,9 @@
 @import '~@ionic/angular/css/flex-utils.css';
 
 @import './../../../libs/ui/src/lib/styles/ionic.scss';
+
+@import './../../styles/ionic/appointment-manager/ionic-appointment-manager.scss';
+
+.toast-info {
+  background-color: #219ebc;
+}

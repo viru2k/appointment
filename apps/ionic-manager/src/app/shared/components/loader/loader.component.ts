@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BaseSharedFacade } from '@appointment/store';
 import { LoadingController } from '@ionic/angular';
-import { filter } from 'rxjs/operators';
-import { BaseSharedFacade } from '../../../store/shared/shared.facade';
 
 @Component({
   selector: 'app-loader',
@@ -9,7 +8,8 @@ import { BaseSharedFacade } from '../../../store/shared/shared.facade';
   styleUrls: ['./loader.component.scss'],
 })
 export class LoaderComponent implements OnInit {
-  loader;
+  isLoading = false;
+
   constructor(
     public loadingController: LoadingController,
     private sharedFacade: BaseSharedFacade
@@ -20,25 +20,28 @@ export class LoaderComponent implements OnInit {
   }
 
   private setLoadersubscription(): void {
-    console.log(this.loader);
-    this.sharedFacade.isLoading$.subscribe((loading: boolean) => {
-      if (loading) {
-        this.presentLoading();
-      } else {
-        this.removeLoading();
-      }
+    this.sharedFacade.loader$.subscribe((loading: boolean) => {
+      console.log(loading);
+      loading ? this.present() : this.dismiss();
     });
   }
 
-  async presentLoading() {
-    this.loader = await this.loadingController.create({
-      cssClass: 'my-custom-class',
-      message: 'Cargando',
+  async present() {
+    this.isLoading = true;
+    return await this.loadingController.create({}).then((a) => {
+      a.present().then(() => {
+        console.log('presented');
+        if (!this.isLoading) {
+          a.dismiss().then(() => console.log('abort presenting'));
+        }
+      });
     });
-    await this.loader.present();
   }
 
-  async removeLoading() {
-    await this.loader.dismiss();
+  async dismiss() {
+    this.isLoading = false;
+    return await this.loadingController
+      .dismiss()
+      .then(() => console.log('dismissed'));
   }
 }

@@ -11,7 +11,7 @@ export interface AppointmentsDataState {
 }
 
 export const initialState: AppointmentsDataState = {
-  appointments: [],
+  appointments: null,
 };
 
 const AppointmentsReducer = createReducer(
@@ -42,12 +42,12 @@ export function AppointmentsReducerFunction(
 // FORM VIEW STATE
 export interface AppointmentsFormState {
   appointmentList: CurrentAppointment[];
-  // selectedAppointment: CurrentAppointment;
+  selectedAppointment: CurrentAppointment;
 }
 
 export const initialFormState: AppointmentsFormState = {
   appointmentList: [],
-  //  selectedAppointment: null,
+  selectedAppointment: null,
 };
 
 const AppointmentsFormReducer = createReducer(

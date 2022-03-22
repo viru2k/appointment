@@ -2,37 +2,37 @@
 import { createReducer, on, Action } from '@ngrx/store';
 
 // Store
-import { sharedActions } from '../actions/action-types';
+import { LoaderActions } from '../actions/action-types';
 
-// FORM VIEW STATE
-export interface sharedFormState {
-  loading: boolean;
+export interface LoaderState {
+  loader: boolean;
 }
 
-export const initialFormState: sharedFormState = {
-  loading: false,
+export const initialLoaderState: LoaderState = {
+  loader: null,
 };
 
-const sharedFormReducer = createReducer(
-  initialFormState,
-  on(sharedActions.showLoader, (state) => {
+export const loaderReducer = createReducer(
+  initialLoaderState,
+
+  on(LoaderActions.showLoader, (state) => {
     return {
       ...state,
-      loading: true,
+      loader: true,
     };
   }),
 
-  on(sharedActions.hideLoader, (state) => {
+  on(LoaderActions.hideLoader, (state) => {
     return {
       ...state,
-      loading: false,
+      loader: false,
     };
   })
 );
 
-export function sharedFormReducerFunction(
-  state: sharedFormState | undefined,
+export function loaderReducerFunction(
+  state: LoaderState | undefined,
   action: Action
-): sharedFormState {
-  return sharedFormReducer(state, action);
+) {
+  return loaderReducer(state, action);
 }
