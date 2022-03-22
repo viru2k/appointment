@@ -13,25 +13,21 @@ import { sharedState } from './reducers/reducer-map';
 
 import * as fromSharedSelectors from './selectors/shared.selectors';
 import * as fromRouterSelectors from './selectors/reducer-navigator.selectors';
-import { sharedActions } from './actions/action-types';
+import { LoaderActions } from './actions/action-types';
 
 @Injectable({ providedIn: 'root' })
 export class BaseSharedFacade {
   // DATA VIEW OBSERVABLES
-  isLoading$: Observable<boolean> = this.parentStore.pipe(
-    select(fromSharedSelectors.getLoading)
-  );
-
-  currentRoute$: Observable<any> = this.parentStore.pipe(
-    select(fromSharedSelectors.getRouteNavigationDataState)
+  loader$: Observable<boolean> = this.parentStore.pipe(
+    select(fromSharedSelectors.getLoader)
   );
 
   constructor(private parentStore: Store<sharedState>) {}
 
   showLoader(): void {
-    this.parentStore.dispatch(sharedActions.showLoader());
+    this.parentStore.dispatch(LoaderActions.showLoader());
   }
   HideLoader(): void {
-    this.parentStore.dispatch(sharedActions.hideLoader());
+    this.parentStore.dispatch(LoaderActions.hideLoader());
   }
 }

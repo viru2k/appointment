@@ -1,8 +1,6 @@
 // Ngrx
-import { createAction, props } from '@ngrx/store';
+import { createAction } from '@ngrx/store';
 
-// VIEW DATA REQUEST ACTIONS
+export const showLoader = createAction('[Loader] Show Loader');
 
-export const showLoader = createAction('[Shared] Show Loader');
-
-export const hideLoader = createAction('[Shared] Hide Loader');
+export const hideLoader = createAction('[Loader] Hide Loader');
