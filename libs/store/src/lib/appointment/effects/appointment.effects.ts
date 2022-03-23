@@ -14,7 +14,7 @@ import { AppointmentActions } from '../actions/action-types';
 // API
 import { AppointmentsService } from '@appointment/api';
 
-import { sharedActions } from '../../shared/actions/action-types';
+import { LoaderActions } from '../../shared/actions/action-types';
 import { NewAppointent, CurrentAppointment } from '@appointment/models';
 
 // Show/hide spinner actions
@@ -91,14 +91,14 @@ export class AppointmentEffects {
   showLoader$ = createEffect(() =>
     this.actions$.pipe(
       ofType(...SHOW_LOADER_ACTIONS),
-      map(() => sharedActions.showLoader())
+      map(() => LoaderActions.showLoader())
     )
   );
 
   hideLoader$ = createEffect(() =>
     this.actions$.pipe(
       ofType(...HIDE_LOADER_ACTIONS),
-      map(() => sharedActions.hideLoader())
+      map(() => LoaderActions.hideLoader())
     )
   );
 }

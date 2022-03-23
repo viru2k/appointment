@@ -18,14 +18,18 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-
 // Store
-import { AppointmentsStoreModule, CoreStoreModule } from '@appointment/store';
+import {
+  AppointmentsStoreModule,
+  CoreStoreModule,
+  SharedStoreModule,
+} from '@appointment/store';
 
 //Translations
 import { TranslationsModule } from '@appointment/translations';
-import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
+
+// Componets
+import { LoaderComponent } from './shared/components/loader/loader.component';
 
 export const loader = ['en', 'es'].reduce((acc, lang) => {
   acc[lang] = () =>
@@ -33,7 +37,7 @@ export const loader = ['en', 'es'].reduce((acc, lang) => {
   return acc;
 }, {});
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoaderComponent],
   entryComponents: [],
   imports: [
     HttpClientModule,
@@ -41,7 +45,9 @@ export const loader = ['en', 'es'].reduce((acc, lang) => {
     IonicModule.forRoot(),
     AppRoutingModule,
     FontAwesomeModule,
+    // Store
     CoreStoreModule,
+    SharedStoreModule,
     AppointmentsStoreModule,
     TranslationsModule,
   ],

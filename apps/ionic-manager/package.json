@@ -1,7 +1,8 @@
 {
   "name": "ionic-manager",
   "devDependencies": {
-    "@capacitor/cli": "^3.2.5"
+    "@capacitor/cli": "^3.2.5",
+    "@nxtend/ionic-angular": "^13.0.0"
   },
   "dependencies": {
     "@fortawesome/angular-fontawesome": "^0.10.1",
