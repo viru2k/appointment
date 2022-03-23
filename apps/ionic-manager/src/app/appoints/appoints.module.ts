@@ -2,11 +2,12 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Tab1Page } from './tab1.page';
+import { AppointsPage } from './appoints.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
-import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { AppointsPageRoutingModule } from './appoints-routing.module';
 import { AppointmentsStoreModule } from '@appointment/store';
+import { TranslationsModule } from '@appointment/translations';
 
 @NgModule({
   imports: [
@@ -14,9 +15,10 @@ import { AppointmentsStoreModule } from '@appointment/store';
     CommonModule,
     FormsModule,
     ExploreContainerComponentModule,
-    Tab1PageRoutingModule,
+    AppointsPageRoutingModule,
     AppointmentsStoreModule,
+    TranslationsModule,
   ],
-  declarations: [Tab1Page],
+  declarations: [AppointsPage],
 })
-export class Tab1PageModule {}
+export class AppointsPageModule {}

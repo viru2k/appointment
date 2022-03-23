@@ -1,0 +1,26 @@
+{
+  "projectType": "library",
+  "root": "libs/translations",
+  "sourceRoot": "libs/translations/src",
+  "prefix": "appointment",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/translations"],
+      "options": {
+        "jestConfig": "libs/translations/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/translations/src/**/*.ts",
+          "libs/translations/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

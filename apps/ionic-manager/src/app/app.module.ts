@@ -28,9 +28,6 @@ import {
 //Translations
 import { TranslationsModule } from '@appointment/translations';
 
-//Translation Transloco
-import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
-
 // Componets
 import { LoaderComponent } from './shared/components/loader/loader.component';
 
@@ -52,6 +49,7 @@ export const loader = ['en', 'es'].reduce((acc, lang) => {
     CoreStoreModule,
     SharedStoreModule,
     AppointmentsStoreModule,
+    TranslationsModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
