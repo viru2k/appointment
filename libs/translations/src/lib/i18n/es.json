@@ -1,0 +1,9 @@
+{
+  "common.button.back": "Volver",
+  "common.button.forward": "Ir",
+  "common.button.confirm": "Confirmar",
+  "common.button.sarve": "Guardar",
+  "common.button.cancel": "Cancelar",
+  "appointment.menu.title.header": "Turnos",
+  "appointment.display.pendings": " {{totalAppointments}} Turnos Pendientes"
+}

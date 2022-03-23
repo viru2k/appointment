@@ -1,0 +1,9 @@
+{
+  "common.button.back": "Back",
+  "common.button.forward": "Go",
+  "common.button.confirm": "Confirm",
+  "common.button.sarve": "Save",
+  "common.button.cancel": "Cancel",
+  "appointment.menu.title.header": "Appointments",
+  "appointment.display.pendings": " {{totalAppointments}} Pending Appointments"
+}

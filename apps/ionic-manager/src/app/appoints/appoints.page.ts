@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { BaseAppointmentsFacade } from '@appointment/store';
 
 @Component({
-  selector: 'appointment-tab1',
-  templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss'],
+  selector: 'appointment-appoints',
+  templateUrl: 'appoints.page.html',
+  styleUrls: ['appoints.page.scss'],
 })
-export class Tab1Page implements OnInit {
+export class AppointsPage implements OnInit {
   constructor(public appointmentsFacade: BaseAppointmentsFacade) {}
 
   ngOnInit(): void {
