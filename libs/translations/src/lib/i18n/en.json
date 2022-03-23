@@ -5,5 +5,6 @@
   "common.button.sarve": "Save",
   "common.button.cancel": "Cancel",
   "appointment.menu.title.header": "Appointments",
+  "appointment.settings.menu.title.header": "Settings",
   "appointment.display.pendings": " {{totalAppointments}} Pending Appointments"
 }

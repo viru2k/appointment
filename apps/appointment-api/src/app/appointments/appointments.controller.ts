@@ -1,12 +1,25 @@
 //Agular
-import { Body, Controller, Get, Post, Param, Put } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Param,
+  Put,
+  Patch,
+  Query,
+} from '@nestjs/common';
 
 //Services
 import { AppointmentsService } from './appointments.service';
 
 //Model
+import { FilterAppointment } from './dto/filter-appointment.dto';
 import { NewAppointent } from './dto/new-appointment.dto';
 import { CurrentAppointment } from './dto/current-appointment.dto';
+
+//Entity
+import { Appointment } from './entities/appointment.entity';
 import {
   ApiCreatedResponse,
   ApiForbiddenResponse,
@@ -15,6 +28,7 @@ import {
   ApiTags,
   getSchemaPath,
 } from '@nestjs/swagger';
+import { User } from '../auth/entities/user.entity';
 @ApiTags('Appointments')
 @Controller('appointments')
 export class AppointmentsController {
@@ -28,17 +42,17 @@ export class AppointmentsController {
     description: 'Creates new user object.',
   })
   @ApiForbiddenResponse({ description: 'Forbiden' })
-  getAllAppointments(): CurrentAppointment[] {
-    return this.appointmentsService.getAllAppointemnts();
+  getAllAppointments(
+    @Query() filter: FilterAppointment
+  ): Promise<Appointment[]> {
+    return this.appointmentsService.getAllAppointemnts(filter);
   }
 
   @Get('/:id')
   @ApiOkResponse({ description: 'The results element has been correct' })
   @ApiForbiddenResponse({ description: 'Forbiden' })
-  getAppointmentsByPOS(@Param('id') id: string): CurrentAppointment {
-    return <CurrentAppointment>(
-      this.appointmentsService.getAppointmentsByPOS(id)
-    );
+  getAppointmentsByPOS(@Param('id') id: string): Promise<Appointment> {
+    return this.appointmentsService.getAppointmenById(id);
   }
 
   @Post()
@@ -46,20 +60,19 @@ export class AppointmentsController {
     description: 'The resource has been  successfully created',
   })
   @ApiForbiddenResponse({ description: 'Forbiden' })
-  postAppointment(@Body() newAppointentDto: NewAppointent): NewAppointent {
-    return <NewAppointent>(
-      this.appointmentsService.newAppointment(newAppointentDto)
-    );
+  postAppointment(
+    @Body() newAppointentDto: NewAppointent
+  ): Promise<Appointment> {
+    return this.appointmentsService.newAppointment(newAppointentDto);
   }
 
-  @Put()
+  @Patch('/:id')
   @ApiOkResponse({ description: 'The resource has been  successfully updated' })
   @ApiForbiddenResponse({ description: 'Forbiden' })
   putAppointment(
+    @Param('id') id: string,
     @Body() currentAppointment: CurrentAppointment
-  ): CurrentAppointment {
-    return <CurrentAppointment>(
-      this.appointmentsService.updateAppointment(currentAppointment)
-    );
+  ): Promise<Appointment> {
+    return this.appointmentsService.putAppointment(id, currentAppointment);
   }
 }

@@ -1,17 +1,15 @@
-import { AppointmentStatusEnums } from '../enums/appointment-status-enums';
+import { RoleEnums } from '../enums/role-enums';
 import { ApiProperty } from '@nestjs/swagger';
-import { User } from '../../auth/entities/user.entity';
 
-export class CurrentAppointment {
+export class CurrentAuth {
   @ApiProperty({ type: 'string', required: true })
   id: string;
   @ApiProperty({ type: 'string', required: false })
   description: string;
   @ApiProperty({
-    enum: AppointmentStatusEnums,
+    enum: RoleEnums,
     isArray: true,
     required: true,
   })
-  status: AppointmentStatusEnums;
-  user: User;
+  status: RoleEnums;
 }
