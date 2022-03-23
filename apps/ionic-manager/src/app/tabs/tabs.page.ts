@@ -7,7 +7,11 @@ import { BaseAppointmentsFacade } from '@appointment/store';
   styleUrls: ['tabs.page.scss'],
 })
 export class TabsPage implements OnInit {
-  constructor() {}
+  // declaration for the icons
+
+  constructor() {
+    
+  }
 
   ngOnInit(): void {}
 }
