@@ -11,6 +11,7 @@ import { AppointmentRepository } from './repositories/appointment.repository';
 // DTO
 import { NewAppointent } from './dto/new-appointment.dto';
 import { CurrentAppointment } from './dto/current-appointment.dto';
+import { FilterAppointment } from './dto/filter-appointment.dto';
 
 @Injectable()
 export class AppointmentsService {
@@ -19,8 +20,8 @@ export class AppointmentsService {
     private appointmentRepository: AppointmentRepository
   ) {}
 
-  async getAllAppointemnts(): Promise<Appointment[]> {
-    const appointment = this.appointmentRepository.find();
+  async getAllAppointemnts(filter?: FilterAppointment): Promise<Appointment[]> {
+    const appointment = this.appointmentRepository.getAllAppointment(filter);
     return appointment;
   }
 
@@ -36,7 +37,7 @@ export class AppointmentsService {
   async newAppointment(
     createAppoinmentDto: NewAppointent
   ): Promise<Appointment> {
-    return this.appointmentRepository.newAppontment(createAppoinmentDto);
+    return this.appointmentRepository.setAppointment(createAppoinmentDto);
   }
 
   async putAppointment(

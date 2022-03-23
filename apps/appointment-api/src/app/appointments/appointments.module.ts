@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 
 // Controller
 import { AppointmentsController } from './appointments.controller';
+
 //Service
 import { AppointmentsService } from './appointments.service';
 

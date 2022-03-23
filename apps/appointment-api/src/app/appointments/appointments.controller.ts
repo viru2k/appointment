@@ -1,12 +1,24 @@
 //Agular
-import { Body, Controller, Get, Post, Param, Put, Patch } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Post,
+  Param,
+  Put,
+  Patch,
+  Query,
+} from '@nestjs/common';
 
 //Services
 import { AppointmentsService } from './appointments.service';
 
 //Model
+import { FilterAppointment } from './dto/filter-appointment.dto';
 import { NewAppointent } from './dto/new-appointment.dto';
 import { CurrentAppointment } from './dto/current-appointment.dto';
+
+//Entity
 import { Appointment } from './entities/appointment.entity';
 import {
   ApiCreatedResponse,
@@ -16,6 +28,7 @@ import {
   ApiTags,
   getSchemaPath,
 } from '@nestjs/swagger';
+import { User } from '../auth/entities/user.entity';
 @ApiTags('Appointments')
 @Controller('appointments')
 export class AppointmentsController {
@@ -29,8 +42,10 @@ export class AppointmentsController {
     description: 'Creates new user object.',
   })
   @ApiForbiddenResponse({ description: 'Forbiden' })
-  getAllAppointments(): Promise<Appointment[]> {
-    return this.appointmentsService.getAllAppointemnts();
+  getAllAppointments(
+    @Query() filter: FilterAppointment
+  ): Promise<Appointment[]> {
+    return this.appointmentsService.getAllAppointemnts(filter);
   }
 
   @Get('/:id')

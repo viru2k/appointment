@@ -1,5 +1,6 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { AppointmentStatusEnums } from '../enums/AppointmentStatusEnums';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { User } from '../../auth/entities/user.entity';
+import { AppointmentStatusEnums } from '../enums/appointment-status-enums';
 
 @Entity()
 export class Appointment {
@@ -13,4 +14,6 @@ export class Appointment {
     default: 'PENDING',
   })
   status: AppointmentStatusEnums;
+  @ManyToOne((type) => User, (user) => user.appointments, { eager: false })
+  user: User;
 }

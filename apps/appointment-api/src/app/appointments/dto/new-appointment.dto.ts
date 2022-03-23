@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { AppointmentStatusEnums } from '../enums/AppointmentStatusEnums';
+import { User } from '../../auth/entities/user.entity';
+import { AppointmentStatusEnums } from '../enums/appointment-status-enums';
 
 export class NewAppointent {
   @ApiProperty({ type: 'string', required: false })
@@ -8,7 +9,8 @@ export class NewAppointent {
   @ApiProperty({
     enum: AppointmentStatusEnums,
     isArray: true,
-    required: true 
+    required: true,
   })
   status: AppointmentStatusEnums;
+  user: User;
 }
