@@ -11,7 +11,20 @@
     "/appointments": {
       "get": {
         "operationId": "AppointmentsController_getAllAppointments",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "status",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "schema": { "type": "string" }
+          }
+        ],
         "responses": {
           "201": {
             "description": "Creates new user object.",
@@ -46,25 +59,6 @@
           "403": { "description": "Forbiden" }
         },
         "tags": ["Appointments"]
-      },
-      "put": {
-        "operationId": "AppointmentsController_putAppointment",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": { "$ref": "#/components/schemas/CurrentAppointment" }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "The resource has been  successfully updated"
-          },
-          "403": { "description": "Forbiden" }
-        },
-        "tags": ["Appointments"]
       }
     },
     "/appointments/{id}": {
@@ -83,16 +77,74 @@
           "403": { "description": "Forbiden" }
         },
         "tags": ["Appointments"]
+      },
+      "patch": {
+        "operationId": "AppointmentsController_putAppointment",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/CurrentAppointment" }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "The resource has been  successfully updated"
+          },
+          "403": { "description": "Forbiden" }
+        },
+        "tags": ["Appointments"]
+      }
+    },
+    "/Auth/signup": {
+      "post": {
+        "operationId": "AuthController_signUp",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/NewUser" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "tags": ["Auth"]
+      }
+    },
+    "/Auth/signin": {
+      "post": {
+        "operationId": "AuthController_signIn",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/AuthUser" }
+            }
+          }
+        },
+        "responses": { "201": { "description": "" } },
+        "tags": ["Auth"]
       }
     }
   },
   "info": {
-    "title": "Cats example",
-    "description": "The cats API description",
+    "title": "APPOINTMENT API",
+    "description": "The appointment API description",
     "version": "1.0",
     "contact": {}
   },
-  "tags": [{ "name": "cats", "description": "" }],
+  "tags": [{ "name": "develop", "description": "" }],
   "servers": [],
   "components": {
     "schemas": {
@@ -138,6 +190,31 @@
           }
         },
         "required": ["status"]
+      },
+      "NewUser": {
+        "type": "object",
+        "properties": {
+          "username": { "type": "string" },
+          "password": { "type": "string" },
+          "email": { "type": "string" },
+          "role": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": ["ADMIN", "OPERATOR", "USER", "DISABLED"]
+            }
+          }
+        },
+        "required": ["username", "password", "email", "role"]
+      },
+      "AuthUser": {
+        "type": "object",
+        "properties": {
+          "username": { "type": "string" },
+          "password": { "type": "string" },
+          "email": { "type": "string" }
+        },
+        "required": ["username", "password"]
       }
     }
   }
