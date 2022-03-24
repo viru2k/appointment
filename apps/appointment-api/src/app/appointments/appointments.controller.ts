@@ -9,6 +9,9 @@ import {
   Patch,
   Query,
 } from '@nestjs/common';
+//Nest
+import { AuthGuard } from '@nestjs/passport';
+import { UseGuards } from '@nestjs/common';
 
 //Services
 import { AppointmentsService } from './appointments.service';
@@ -31,6 +34,7 @@ import {
 import { User } from '../auth/entities/user.entity';
 @ApiTags('Appointments')
 @Controller('appointments')
+@UseGuards(AuthGuard())
 export class AppointmentsController {
   constructor(private appointmentsService: AppointmentsService) {}
 
