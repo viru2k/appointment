@@ -2,23 +2,21 @@ import { ApiProperty } from '@nestjs/swagger';
 
 // class validator
 import {
-  IsString,
   MinLength,
   MaxLength,
-  IsEmail,
   IsNotEmpty,
   Matches,
+  IsEmail,
+  IsOptional,
 } from 'class-validator';
 
-// Enum
-import { RoleEnums } from '../enums/role-enums';
-
-export class NewUser {
+export class AuthUser {
   @ApiProperty({ type: 'string', required: true })
   @MinLength(4)
   @MaxLength(20)
   @IsNotEmpty()
   username: string;
+
   @ApiProperty({ type: 'string', required: true })
   @IsNotEmpty()
   @MinLength(4)
@@ -28,15 +26,8 @@ export class NewUser {
   })
   password: string;
 
-  @ApiProperty({ type: 'string', required: true })
-  @MinLength(4)
-  @IsNotEmpty()
+  @ApiProperty({ type: 'string', required: false })
   @IsEmail()
+  @IsOptional()
   email: string;
-  @ApiProperty({
-    enum: RoleEnums,
-    isArray: true,
-    required: true,
-  })
-  role: RoleEnums;
 }

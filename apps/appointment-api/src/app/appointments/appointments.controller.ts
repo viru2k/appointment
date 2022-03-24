@@ -9,6 +9,9 @@ import {
   Patch,
   Query,
 } from '@nestjs/common';
+//Nest
+import { AuthGuard } from '@nestjs/passport';
+import { UseGuards } from '@nestjs/common';
 
 //Services
 import { AppointmentsService } from './appointments.service';
@@ -29,8 +32,10 @@ import {
   getSchemaPath,
 } from '@nestjs/swagger';
 import { User } from '../auth/entities/user.entity';
+import { GetUser } from '../auth/decorators/get-user.decorator';
 @ApiTags('Appointments')
 @Controller('appointments')
+@UseGuards(AuthGuard())
 export class AppointmentsController {
   constructor(private appointmentsService: AppointmentsService) {}
 
@@ -43,16 +48,20 @@ export class AppointmentsController {
   })
   @ApiForbiddenResponse({ description: 'Forbiden' })
   getAllAppointments(
-    @Query() filter: FilterAppointment
+    @Query() filter: FilterAppointment,
+    @GetUser() user: User
   ): Promise<Appointment[]> {
-    return this.appointmentsService.getAllAppointemnts(filter);
+    return this.appointmentsService.getAllAppointemnts(filter, user);
   }
 
   @Get('/:id')
   @ApiOkResponse({ description: 'The results element has been correct' })
   @ApiForbiddenResponse({ description: 'Forbiden' })
-  getAppointmentsByPOS(@Param('id') id: string): Promise<Appointment> {
-    return this.appointmentsService.getAppointmenById(id);
+  getAppointmentsByPOS(
+    @Param('id') id: string,
+    @GetUser() user: User
+  ): Promise<Appointment> {
+    return this.appointmentsService.getAppointmenById(id, user);
   }
 
   @Post()
@@ -71,8 +80,13 @@ export class AppointmentsController {
   @ApiForbiddenResponse({ description: 'Forbiden' })
   putAppointment(
     @Param('id') id: string,
-    @Body() currentAppointment: CurrentAppointment
+    @Body() currentAppointment: CurrentAppointment,
+    @GetUser() user: User
   ): Promise<Appointment> {
-    return this.appointmentsService.putAppointment(id, currentAppointment);
+    return this.appointmentsService.putAppointment(
+      id,
+      currentAppointment,
+      user
+    );
   }
 }

@@ -1,3 +1,4 @@
+import { Exclude } from 'class-transformer';
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { User } from '../../auth/entities/user.entity';
 import { AppointmentStatusEnums } from '../enums/appointment-status-enums';
@@ -14,6 +15,7 @@ export class Appointment {
     default: 'PENDING',
   })
   status: AppointmentStatusEnums;
-  @ManyToOne((type) => User, (user) => user.appointments, { eager: false })
+  @ManyToOne((_type) => User, (user) => user.appointments, { eager: false })
+  @Exclude({ toPlainOnly: true }) //  remove user in this case for not to be shown at response
   user: User;
 }

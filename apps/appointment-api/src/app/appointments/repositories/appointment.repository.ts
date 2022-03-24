@@ -8,12 +8,18 @@ import { Appointment } from '../entities/appointment.entity';
 import { NewAppointent } from '../dto/new-appointment.dto';
 import { CurrentAppointment } from '../dto/current-appointment.dto';
 import { FilterAppointment } from '../dto/filter-appointment.dto';
+import { User } from '../../auth/entities/user.entity';
 
 @EntityRepository(Appointment)
 export class AppointmentRepository extends Repository<Appointment> {
-  async getAllAppointment(filter: FilterAppointment): Promise<Appointment[]> {
+  async getAllAppointment(
+    filter: FilterAppointment,
+    user: User
+  ): Promise<Appointment[]> {
     const { status, search } = filter;
     const query = this.createQueryBuilder('appointment');
+
+    query.where({ user });
 
     if (status) {
       query.andWhere('appointment.status = :status', { status });

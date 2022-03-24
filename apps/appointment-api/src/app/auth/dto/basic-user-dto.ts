@@ -1,8 +1,13 @@
-import { RoleEnums } from '../enums/role-enums';
 import { ApiProperty } from '@nestjs/swagger';
 
+// Class validator
+import { IsNotEmpty } from 'class-validator';
+
+// Enum
+import { RoleEnums } from '../enums/role-enums';
 export class BasicUser {
   @ApiProperty({ type: 'string', required: true })
+  @IsNotEmpty()
   id: string;
   @ApiProperty({ type: 'string', required: false })
   username: string;

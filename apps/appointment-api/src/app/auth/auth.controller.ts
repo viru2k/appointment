@@ -27,6 +27,7 @@ import {
   getSchemaPath,
 } from '@nestjs/swagger';
 import { NewUser } from './dto/new-user.dto';
+import { AuthUser } from './dto/auth-user.dto';
 
 @ApiTags('Auth')
 @Controller('Auth')
@@ -36,5 +37,10 @@ export class AuthController {
   @Post('/signup')
   signUp(@Body() newUser: NewUser): Promise<void> {
     return this.authService.signUp(newUser);
+  }
+
+  @Post('/signin')
+  signIn(@Body() authUser: AuthUser): Promise<{ accessToken: string }> {
+    return this.authService.signIn(authUser);
   }
 }
