@@ -3,14 +3,24 @@
  * This is only a minimal backend to get started.
  */
 
-import { Logger, ValidationPipe } from '@nestjs/common';
-import { NestFactory } from '@nestjs/core';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { AppModule } from './app/app.module';
+
+//Nest
+import { NestFactory } from '@nestjs/core';
+
+// Swagger
+import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
+
+// Pipes
+import { Logger, ValidationPipe } from '@nestjs/common';
+
+// Interceptors
+import { TransformInterceptor } from './app/interceptors/transform.interceptor';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
   app.useGlobalPipes(new ValidationPipe());
+  app.useGlobalInterceptors(new TransformInterceptor());
   const config = new DocumentBuilder()
     .setTitle('APPOINTMENT API')
     .setDescription('The appointment API description')
