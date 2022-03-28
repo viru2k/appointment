@@ -26,8 +26,8 @@
           }
         ],
         "responses": {
-          "201": {
-            "description": "Creates new user object.",
+          "200": {
+            "description": "Return a list of Appointment",
             "content": {
               "application/json": {
                 "schema": {
@@ -117,7 +117,7 @@
             }
           }
         },
-        "responses": { "201": { "description": "" } },
+        "responses": { "204": { "description": "User created successfully" } },
         "tags": ["Auth"]
       }
     },
@@ -133,7 +133,14 @@
             }
           }
         },
-        "responses": { "201": { "description": "" } },
+        "responses": {
+          "200": {
+            "description": "Return a list of Appointment",
+            "content": {
+              "application/json": { "schema": { "type": "string" } }
+            }
+          }
+        },
         "tags": ["Auth"]
       }
     }

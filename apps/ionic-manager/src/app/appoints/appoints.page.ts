@@ -12,5 +12,9 @@ export class AppointsPage implements OnInit {
   ngOnInit(): void {
     console.log('loadong');
     this.appointmentsFacade.loadViewData();
+    //  this.setAppointmentSubscription();
   }
+
+  newAppointment(): void {}
+  //setAppointmentSubscription;
 }

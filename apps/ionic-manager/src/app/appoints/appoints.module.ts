@@ -9,6 +9,9 @@ import { AppointsPageRoutingModule } from './appoints-routing.module';
 import { AppointmentsStoreModule } from '@appointment/store';
 import { TranslationsModule } from '@appointment/translations';
 
+//UI components
+import { UIModule } from '@appointment/ui';
+
 @NgModule({
   imports: [
     IonicModule,
@@ -18,6 +21,7 @@ import { TranslationsModule } from '@appointment/translations';
     AppointsPageRoutingModule,
     AppointmentsStoreModule,
     TranslationsModule,
+    UIModule,
   ],
   declarations: [AppointsPage],
 })

@@ -35,10 +35,19 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post('/signup')
+  @ApiResponse({
+    status: 204,
+    description: 'User created successfully',
+  })
   signUp(@Body() newUser: NewUser): Promise<void> {
     return this.authService.signUp(newUser);
   }
-
+  @ApiResponse({
+    status: 200,
+    type: String,
+    isArray: false,
+    description: 'Return a list of Appointment',
+  })
   @Post('/signin')
   signIn(@Body() authUser: AuthUser): Promise<{ accessToken: string }> {
     return this.authService.signIn(authUser);

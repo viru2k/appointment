@@ -28,11 +28,11 @@ export class BaseAppointmentsFacade {
     select(fromSelectors.isViewReady)
   );
 
-  Appointments$: Observable<CurrentAppointment[]> = this.parentStore.pipe(
+  appointments$: Observable<CurrentAppointment[]> = this.parentStore.pipe(
     select(fromSelectors.getAppointments)
   );
 
-  peliculaList$: Observable<CurrentAppointment[]> = this.parentStore.pipe(
+  appointmentsList$: Observable<CurrentAppointment[]> = this.parentStore.pipe(
     select(fromSelectors.getAppointmentList)
   );
 

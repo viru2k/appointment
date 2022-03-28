@@ -33,8 +33,3 @@ export const getAppointmentList = createSelector(
   (state) => state.appointmentList
 );
 
-/* export const getSelectedAppointment = createSelector(
-  getAppointmentsFormState,
-  (state) => state.selectedAppointment
-);
- */

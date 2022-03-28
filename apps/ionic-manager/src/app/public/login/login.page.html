@@ -1,0 +1,38 @@
+<ion-content class="auth-form">
+  <ion-grid>
+    <ion-row class="ion-align-items-center">
+      <ion-col>
+        <span class="p-float-label p-input-icon-left ion-padding">
+          <i class="pi pi-user"></i>
+          <input id="float-input" type="text" class="form-control" pInputText />
+          <label for="float-input">
+            {{ 'scopeTranslation.login.username.label' | transloco }}</label
+          >
+        </span>
+
+        <span class="p-float-label p-input-icon-left ion-padding">
+          <i class="pi pi-unlock"></i>
+          <input type="password" class="form-control" pInputText />
+          <label for="float-input">
+            {{ 'scopeTranslation.login.password.label' | transloco }}</label
+          >
+        </span>
+        <ion-button
+          [routerLink]="['/tabs/appoints']"
+          expand="block"
+          color="danger"
+          >{{ 'scopeTranslation.login.sign-in.label' | transloco }}</ion-button
+        >
+        <ion-button [routerLink]="['/register']" expand="block" color="primary"
+          >{{ 'scopeTranslation.login.sign-up.label' | transloco }}</ion-button
+        >
+        <span class="divider line one-line"></span>
+        <span class="already"
+          >{{ 'scopeTranslation.login.already-user.label' | transloco }}</span
+        >
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<h6>Example heading <span class="badge badge-outline-primary">New</span></h6>
