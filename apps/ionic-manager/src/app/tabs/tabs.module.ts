@@ -12,7 +12,13 @@ import { TabsPage } from './tabs.page';
 //font awesome setup
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { UIModule } from '@appointment/ui';
 
+// Translations
+import { TranslationsModule } from '@appointment/translations';
+
+// Components
+import { AccordionModule } from 'ngx-bootstrap/accordion';
 @NgModule({
   imports: [
     IonicModule,
@@ -20,6 +26,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     TabsPageRoutingModule,
     FontAwesomeModule,
+    UIModule,
+    TranslationsModule,
+    AccordionModule.forRoot(),
   ],
   declarations: [TabsPage],
 })

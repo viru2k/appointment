@@ -14,7 +14,7 @@ import { LoginActions } from '../actions/action-types';
 // API
 import { AuthService } from '@appointment/api';
 
-import { LoaderActions } from '../../shared/actions/action-types';
+import { SharedActions } from '../../shared/actions/action-types';
 import { NewUser, AuthUser } from '@appointment/models';
 
 // Show/hide spinner actions
@@ -68,14 +68,14 @@ export class LoginEffects {
   showLoader$ = createEffect(() =>
     this.actions$.pipe(
       ofType(...SHOW_LOADER_ACTIONS),
-      map(() => LoaderActions.showLoader())
+      map(() => SharedActions.showLoader())
     )
   );
 
   hideLoader$ = createEffect(() =>
     this.actions$.pipe(
       ofType(...HIDE_LOADER_ACTIONS),
-      map(() => LoaderActions.hideLoader())
+      map(() => SharedActions.hideLoader())
     )
   );
 }

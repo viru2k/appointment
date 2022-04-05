@@ -13,7 +13,7 @@ import { sharedState } from './reducers/reducer-map';
 
 import * as fromSharedSelectors from './selectors/shared.selectors';
 import * as fromRouterSelectors from './selectors/reducer-navigator.selectors';
-import { LoaderActions } from './actions/action-types';
+import { SharedActions } from './actions/action-types';
 
 @Injectable({ providedIn: 'root' })
 export class BaseSharedFacade {
@@ -22,12 +22,20 @@ export class BaseSharedFacade {
     select(fromSharedSelectors.getLoader)
   );
 
+  language$: Observable<string> = this.parentStore.pipe(
+    select(fromSharedSelectors.getLanguage)
+  );
+
   constructor(private parentStore: Store<sharedState>) {}
 
   showLoader(): void {
-    this.parentStore.dispatch(LoaderActions.showLoader());
+    this.parentStore.dispatch(SharedActions.showLoader());
   }
   HideLoader(): void {
-    this.parentStore.dispatch(LoaderActions.hideLoader());
+    this.parentStore.dispatch(SharedActions.hideLoader());
+  }
+
+  setLanguage(language: string): void {
+    this.parentStore.dispatch(SharedActions.setCurrentLanguage({ language }));
   }
 }

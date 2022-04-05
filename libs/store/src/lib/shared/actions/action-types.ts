@@ -1,6 +1,6 @@
-import * as LoaderActions from './shared.actions';
+import * as SharedActions from './shared.actions';
 
-export { LoaderActions };
+export { SharedActions };
 
 import * as routerNavigatorActions from './router-navigator.actions';
 export { routerNavigatorActions };

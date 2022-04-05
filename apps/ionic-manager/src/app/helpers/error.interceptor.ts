@@ -48,6 +48,10 @@ export class ErrorInterceptor implements HttpInterceptor {
           //   this.authenticationService.logout();
           /*    this.router.navigateByUrl('/login');
           window.location.reload(); */
+          if (this.router.url !== '/login') {
+            console.log('error en la autenticacion');
+            this.router.navigateByUrl('/login');
+          }
           if (this.router.url === '/login') {
           } else {
           }

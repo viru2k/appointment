@@ -1,10 +1,57 @@
 <ion-card>
   <ion-item>
-    <ion-label> {{item.description}}</ion-label>
-    <ion-button fill="outline" slot="end"> {{item.status}}</ion-button>
+    <ion-label> {{item.id}}</ion-label>
+    <ng-container *ngIf="(item.status === 'ABSENT')">
+      <span class="badge badge-outline-secondary"
+        >{{'scopeTranslation.appointment.status.absent.label' | transloco
+        }}</span
+      >
+    </ng-container>
+    <ng-container *ngIf="(item.status === 'ATENDENDED')">
+      <span class="badge badge-outline-success"
+        >{{'scopeTranslation.appointment.status.atendended.label' | transloco
+        }}</span
+      >
+    </ng-container>
+    <ng-container *ngIf="(item.status === 'CANCELED')">
+      <span class="badge badge-outline-danger"
+        >{{'scopeTranslation.appointment.status.canceled.label' | transloco
+        }}</span
+      >
+    </ng-container>
+
+    <ng-container *ngIf="(item.status === 'CALLING')">
+      <span class="badge badge-outline-primary"
+        >{{'scopeTranslation.appointment.status.calling.label' | transloco
+        }}</span
+      >
+    </ng-container>
+    <ng-container *ngIf="(item.status === 'PRESENT')">
+      <span class="badge badge-outline-warning"
+        >{{'scopeTranslation.appointment.status.present.label' | transloco
+        }}</span
+      >
+    </ng-container>
+    <ng-container *ngIf="(item.status === 'PENDING')">
+      <span class="badge badge-outline-info"
+        >{{'scopeTranslation.appointment.status.pending.label' | transloco
+        }}</span
+      >
+    </ng-container>
   </ion-item>
 
   <ion-card-content>
     <ion-label> {{item.description}}</ion-label>
+  </ion-card-content>
+  <ion-card-content>
+    <ion-button
+      fill="outline"
+      expand="block"
+      class="ion-activatable ripple-parent"
+      (click)="presentActionSheet()"
+    >
+      <ion-ripple-effect></ion-ripple-effect>
+      {{ 'scopeTranslation.appointment.call.button' | transloco }}</ion-button
+    >
   </ion-card-content>
 </ion-card>

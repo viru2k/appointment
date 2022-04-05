@@ -1,4 +1,8 @@
+// Angular
+import { Injectable, NgModule } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
+// Transloco
 import {
   TRANSLOCO_LOADER,
   Translation,
@@ -7,8 +11,10 @@ import {
   translocoConfig,
   TranslocoModule,
 } from '@ngneat/transloco';
-import { Injectable, NgModule } from '@angular/core';
 import { TRANSLOCO_SCOPE } from '@ngneat/transloco';
+
+// used for currency, date and decimal localization
+import { TranslocoLocaleModule } from '@ngneat/transloco-locale';
 
 @Injectable({ providedIn: 'root' })
 export class TranslocoHttpLoader implements TranslocoLoader {
@@ -25,7 +31,8 @@ export const loader = ['en', 'es'].reduce((acc, lang) => {
 }, {});
 
 @NgModule({
-  exports: [TranslocoModule],
+  imports: [TranslocoLocaleModule.forRoot()],
+  exports: [TranslocoModule, TranslocoLocaleModule],
   providers: [
     {
       provide: TRANSLOCO_CONFIG,

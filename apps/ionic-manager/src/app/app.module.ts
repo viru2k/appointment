@@ -3,11 +3,11 @@ import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 //Ionic
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 // Store
 import {
   AppointmentsStoreModule,
@@ -15,6 +15,7 @@ import {
   SharedStoreModule,
   LoginStoreModule,
 } from '@appointment/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // JWT
 import { JwtInterceptor } from './helpers/jwt.interceptor';
@@ -47,17 +48,13 @@ import { AppComponent } from './app.component';
 import { LoaderComponent } from './shared/components/loader/loader.component';
 import { UIModule } from '../../../../libs/ui/src/lib/ui.module';
 
-/* export const loader = ['en', 'es'].reduce((acc, lang) => {
-  acc[lang] = () =>
-    import(`./../../../../libs/translations/src/lib/i18n/${lang}.json`);
-  return acc;
-}, {}); */
 @NgModule({
   declarations: [AppComponent, LoaderComponent],
   entryComponents: [],
   imports: [
     HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     FontAwesomeModule,

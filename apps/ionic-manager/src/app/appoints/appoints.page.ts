@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BaseAppointmentsFacade } from '@appointment/store';
 
 @Component({
@@ -6,13 +6,18 @@ import { BaseAppointmentsFacade } from '@appointment/store';
   templateUrl: 'appoints.page.html',
   styleUrls: ['appoints.page.scss'],
 })
-export class AppointsPage implements OnInit {
+export class AppointsPage {
   constructor(public appointmentsFacade: BaseAppointmentsFacade) {}
 
-  ngOnInit(): void {
-    console.log('loadong');
+  ionViewWillEnter(): void {
     this.appointmentsFacade.loadViewData();
     //  this.setAppointmentSubscription();
+  }
+
+  ionViewDidLeave(): void {
+    console.log('destroyed');
+    this.appointmentsFacade.clearAppointments();
+    this.appointmentsFacade.clearAppointmentsForm();
   }
 
   newAppointment(): void {}

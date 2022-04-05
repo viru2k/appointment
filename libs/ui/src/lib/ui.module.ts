@@ -1,11 +1,16 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { CommonModule } from '@angular/common';
+// Ionic
+import { IonicModule, IonMenu } from '@ionic/angular';
+// Translation
+import { TranslationsModule } from '@appointment/translations';
 import { AppointmentItemComponent } from './mobile/item/appointment/appointment-item';
-import { IonicModule } from '@ionic/angular';
 
 @NgModule({
-  imports: [IonicModule],
-  providers: [],
+  imports: [IonicModule, CommonModule, TranslationsModule],
+  providers: [TranslationsModule],
   declarations: [AppointmentItemComponent],
-  exports: [AppointmentItemComponent],
+  exports: [AppointmentItemComponent, TranslationsModule],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class UIModule {}
