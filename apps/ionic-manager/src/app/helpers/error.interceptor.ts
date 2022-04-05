@@ -52,6 +52,10 @@ export class ErrorInterceptor implements HttpInterceptor {
             console.log('error en la autenticacion');
             this.router.navigateByUrl('/login');
           }
+          if (this.router.url === '/login') {
+          } else {
+          }
+          console.log('error en la autenticacion');
         }
         const error = err.error.message || err.statusText;
         return throwError(error);

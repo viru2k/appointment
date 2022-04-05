@@ -1,4 +1,6 @@
 {
+  "general.title.label": "AGendar",
+  "common.general.no-content": "Sin Contenido Disponible",
   "common.button.back": "Volver",
   "common.button.forward": "Ir",
   "common.button.confirm": "Confirmar",

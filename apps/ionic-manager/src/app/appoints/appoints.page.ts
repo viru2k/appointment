@@ -11,6 +11,7 @@ export class AppointsPage {
 
   ionViewWillEnter(): void {
     this.appointmentsFacade.loadViewData();
+    //  this.setAppointmentSubscription();
   }
 
   ionViewDidLeave(): void {
