@@ -41,16 +41,28 @@ export class AppointmentsController {
 
   @Get()
   @ApiResponse({
-    status: 201,
+    status: 200,
     type: CurrentAppointment,
     isArray: true,
-    description: 'Creates new user object.',
+    description: 'Return a list of Appointment',
   })
+  /*   @ApiOkResponse({
+    status: 200,
+    description: 'Return a list of Appointment',
+    schema: {
+      properties: {
+        appointments: {
+          type: 'array',
+          items: { $ref: getSchemaPath(CurrentAppointment) },
+        },
+      },
+    },
+  }) */
   @ApiForbiddenResponse({ description: 'Forbiden' })
   getAllAppointments(
     @Query() filter: FilterAppointment,
     @GetUser() user: User
-  ): Promise<Appointment[]> {
+  ): Promise<CurrentAppointment[]> {
     return this.appointmentsService.getAllAppointemnts(filter, user);
   }
 

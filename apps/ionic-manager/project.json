@@ -24,6 +24,9 @@
         ],
         "styles": [
           "apps/ionic-manager/src/styles.scss",
+          "apps/ionic-manager/node_modules/primeicons/primeicons.css",
+          "apps/ionic-manager/node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+          "apps/ionic-manager/node_modules/primeng/resources/primeng.min.css",
           {
             "input": "apps/ionic-manager/src/theme/variables.scss"
           }

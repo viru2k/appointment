@@ -24,7 +24,7 @@ export class AppointmentsService {
   async getAllAppointemnts(
     filter: FilterAppointment,
     user: User
-  ): Promise<Appointment[]> {
+  ): Promise<CurrentAppointment[]> {
     const appointment = this.appointmentRepository.getAllAppointment(
       filter,
       user
@@ -32,7 +32,7 @@ export class AppointmentsService {
     return appointment;
   }
 
-  async getAppointmenById(id: string, user: User): Promise<Appointment> {
+  async getAppointmenById(id: string, user: User): Promise<CurrentAppointment> {
     const appointment = await this.appointmentRepository.findOne({
       where: { id, user },
     });

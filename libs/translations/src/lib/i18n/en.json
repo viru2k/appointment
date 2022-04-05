@@ -1,4 +1,6 @@
 {
+  "general.title.label": "APPointments",
+  "common.general.no-content": "No content avaliable",
   "common.button.back": "Back",
   "common.button.forward": "Go",
   "common.button.confirm": "Confirm",
@@ -6,5 +8,10 @@
   "common.button.cancel": "Cancel",
   "appointment.menu.title.header": "Appointments",
   "appointment.settings.menu.title.header": "Settings",
-  "appointment.display.pendings": " {{totalAppointments}} Pending Appointments"
+  "appointment.display.pendings": " {{totalAppointments}} Pending Appointments",
+  "login.already-user.label": "Already a user?",
+  "login.sign-in.label": "Sign In",
+  "login.sign-up.label": "Sign Up",
+  "login.username.label": "Username",
+  "login.password.label": "Password"
 }

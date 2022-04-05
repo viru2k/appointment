@@ -1,2 +1,4 @@
-export * from './lib/models/current-appointment';
-export * from './lib/models/new-appointent';
+export * from './../models/current-appointment';
+export * from './../models/new-appointent';
+export * from './../models/auth-user';
+export * from './../models/new-user';

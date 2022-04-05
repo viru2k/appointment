@@ -82,7 +82,7 @@ export class AuthService extends BaseService {
    */
   authControllerSignIn$Response(params: {
     body: AuthUser
-  }): Observable<StrictHttpResponse<void>> {
+  }): Observable<StrictHttpResponse<string>> {
 
     const rb = new RequestBuilder(this.rootUrl, AuthService.AuthControllerSignInPath, 'post');
     if (params) {
@@ -90,12 +90,12 @@ export class AuthService extends BaseService {
     }
 
     return this.http.request(rb.build({
-      responseType: 'text',
-      accept: '*/*'
+      responseType: 'json',
+      accept: 'application/json'
     })).pipe(
       filter((r: any) => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({ body: undefined }) as StrictHttpResponse<void>;
+        return r as StrictHttpResponse<string>;
       })
     );
   }
@@ -108,10 +108,10 @@ export class AuthService extends BaseService {
    */
   authControllerSignIn(params: {
     body: AuthUser
-  }): Observable<void> {
+  }): Observable<string> {
 
     return this.authControllerSignIn$Response(params).pipe(
-      map((r: StrictHttpResponse<void>) => r.body as void)
+      map((r: StrictHttpResponse<string>) => r.body as string)
     );
   }
 

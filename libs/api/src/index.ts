@@ -1,2 +1,3 @@
-export * from './lib/api.module';
-export * from './../src/lib/services/appointments.service';
+export * from './../api.module';
+export * from './../services/appointments.service';
+export * from './../services/auth.service';

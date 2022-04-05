@@ -1,4 +1,6 @@
 {
+  "general.title.label": "AGendar",
+  "common.general.no-content": "Sin Contenido Disponible",
   "common.button.back": "Volver",
   "common.button.forward": "Ir",
   "common.button.confirm": "Confirmar",
@@ -6,5 +8,10 @@
   "common.button.cancel": "Cancelar",
   "appointment.menu.title.header": "Turnos",
   "appointment.settings.menu.title.header": "Ajustes",
-  "appointment.display.pendings": " {{totalAppointments}} Turnos Pendientes"
+  "appointment.display.pendings": " {{totalAppointments}} Turnos Pendientes",
+  "login.already-user.label": "Eres Usuario?",
+  "login.sign-in.label": "Ingresar",
+  "login.sign-up.label": "Registrarse",
+  "login.username.label": "Usuario",
+  "login.password.label": "Contraseña"
 }
