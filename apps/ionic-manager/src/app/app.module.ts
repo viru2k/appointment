@@ -7,6 +7,17 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+// Store
+import {
+  AppointmentsStoreModule,
+  CoreStoreModule,
+  SharedStoreModule,
+  LoginStoreModule,
+} from '@appointment/store';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// JWT
+import { JwtInterceptor } from './helpers/jwt.interceptor';
+import { ErrorInterceptor } from './helpers/error.interceptor';
 
 /** Imports for font awesome */
 
@@ -27,13 +38,6 @@ import {
   faCheckSquare as farCheckSquare,
 } from '@fortawesome/free-regular-svg-icons';
 
-// Store
-import {
-  AppointmentsStoreModule,
-  CoreStoreModule,
-  SharedStoreModule,
-} from '@appointment/store';
-
 //Translations
 import { TranslationsModule } from '@appointment/translations';
 
@@ -51,6 +55,7 @@ export const loader = ['en', 'es'].reduce((acc, lang) => {
   imports: [
     HttpClientModule,
     BrowserModule,
+    BrowserAnimationsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     FontAwesomeModule,

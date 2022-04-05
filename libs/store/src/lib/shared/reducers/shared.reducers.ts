@@ -2,33 +2,51 @@
 import { createReducer, on, Action } from '@ngrx/store';
 
 // Store
-import { LoaderActions } from '../actions/action-types';
+import { SharedActions } from '../actions/action-types';
 
 export interface LoaderState {
   loader: boolean;
+  language: string;
 }
 
 export const initialLoaderState: LoaderState = {
   loader: null,
+  language: 'es',
 };
 
 export const loaderReducer = createReducer(
   initialLoaderState,
 
-  on(LoaderActions.showLoader, (state) => {
+  on(SharedActions.showLoader, (state) => {
     return {
       ...state,
       loader: true,
     };
   }),
 
-  on(LoaderActions.hideLoader, (state) => {
+  on(SharedActions.hideLoader, (state) => {
     return {
       ...state,
       loader: false,
     };
+  }),
+  on(SharedActions.hideLoader, (state) => {
+    return {
+      ...state,
+      loader: false,
+    };
+  }),
+
+  on(SharedActions.setCurrentLanguage, (state, payload) => {
+    console.log(payload);
+    return {
+      ...state,
+      language: payload.language,
+    };
   })
 );
+
+export const TranslationReducer = createReducer(initialLoaderState);
 
 export function loaderReducerFunction(
   state: LoaderState | undefined,
