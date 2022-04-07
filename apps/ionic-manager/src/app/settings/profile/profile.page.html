@@ -1,0 +1,69 @@
+<ion-content [fullscreen]="true">
+  <ng-container>
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <!-- ONLY KEEPED FOR REFERENCY -->
+        <!--         <ion-buttons slot="start">
+          <ion-back-button
+            defaultHref="main"
+            text=" {{tran('scopeTranslation.common.label.back')}}"
+          ></ion-back-button>
+        </ion-buttons> -->
+        <ion-title
+          >{{ 'scopeTranslation.appointment.status.atendended.label' | transloco
+          }}</ion-title
+        >
+      </ion-toolbar>
+    </ion-header>
+    <!--   <ion-content
+      *ngIf="(appointmentsFacade.appointmentsList$ |async) as appointmentList; else noResultsFound"
+    >
+      <ion-list *ngFor="let item of appointmentList">
+        <app-appointment-item [item]="item"> </app-appointment-item>
+      </ion-list>
+    </ion-content> -->
+    <!-- 
+    <ng-template #noResultsFound>
+      <ion-card>
+        <ion-label
+          >{{ 'scopeTranslation.common.general.no-content' | transloco
+          }</ion-label
+        >
+      </ion-card>
+    </ng-template> -->
+
+    <ion-card>
+      <ion-item padding lines="none" detail="false">
+        <ion-label
+          >{{ 'scopeTranslation.setting.notifications.label' | transloco
+          }}</ion-label
+        >
+        <ion-toggle
+          slot="start"
+          name="cherry"
+          color="danger"
+          checked
+        ></ion-toggle>
+      </ion-item>
+
+      <ion-item padding lines="none" detail="false">
+        <ion-label
+          >{{ 'scopeTranslation.setting.avaliable.label' | transloco
+          }}</ion-label
+        >
+        <ion-toggle
+          slot="start"
+          name="cherry"
+          color="danger"
+          checked
+        ></ion-toggle>
+      </ion-item>
+    </ion-card>
+  </ng-container>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="newAppointment()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

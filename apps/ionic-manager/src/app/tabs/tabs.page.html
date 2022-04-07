@@ -46,7 +46,7 @@
           </ion-item>
           <!-- User -->
           <ion-item
-            (click)="gotToSettings()"
+            (click)="gotToSettings('profile')"
             routerDirection="root"
             lines="none"
             detail="false"
@@ -93,8 +93,9 @@
 
             <ion-list slot="content">
               <ion-menu-toggle auto-hide="false">
+                <!-- Point of attendance POA -->
                 <ion-item
-                  (click)="gotToSettings()"
+                  (click)="gotToSettings('poa')"
                   routerDirection="root"
                   lines="none"
                   detail="false"
@@ -110,8 +111,9 @@
                     }}</ion-label
                   >
                 </ion-item>
+                <!-- Sector -->
                 <ion-item
-                  (click)="gotToSettings()"
+                  (click)="gotToSettings('sector')"
                   routerDirection="root"
                   lines="none"
                   detail="false"
@@ -127,8 +129,9 @@
                     }}</ion-label
                   >
                 </ion-item>
+                <!-- Modules -->
                 <ion-item
-                  (click)="gotToSettings()"
+                  (click)="gotToSettings('modules')"
                   routerDirection="root"
                   lines="none"
                   detail="false"
@@ -144,8 +147,9 @@
                     }}</ion-label
                   >
                 </ion-item>
+                <!-- Users -->
                 <ion-item
-                  (click)="gotToSettings()"
+                  (click)="gotToSettings('users')"
                   routerDirection="root"
                   lines="none"
                   detail="false"
@@ -186,7 +190,10 @@
       </ion-list>
     </ion-content>
   </ion-menu>
+
+  <!-- Route -->
   <ion-router-outlet id="main-content"></ion-router-outlet>
+
   <!-- Tabs -->
   <ion-tabs>
     <ion-tab-bar slot="bottom">
@@ -201,7 +208,7 @@
         >
       </ion-tab-button>
 
-      <ion-tab-button tab="tab2">
+      <ion-tab-button tab="pending">
         <fa-icon [icon]="['fas', 'list-check']" size="2x"></fa-icon>
 
         <ion-label
@@ -212,7 +219,7 @@
         >
       </ion-tab-button>
 
-      <ion-tab-button tab="tab3">
+      <ion-tab-button tab="epic">
         <fa-icon [icon]="['fas', 'id-card']" size="2x"></fa-icon>
 
         <ion-label
@@ -223,7 +230,7 @@
         >
       </ion-tab-button>
 
-      <ion-tab-button tab="settings">
+      <ion-tab-button tab="settings/profile">
         <fa-icon [icon]="['fas', 'cog']" size="2x"></fa-icon>
 
         <ion-label

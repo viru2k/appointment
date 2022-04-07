@@ -2,22 +2,25 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SettingsPage } from './settings.page';
+import { EpicAppointsPage } from './epic-appoints.page';
 
-import { SettingsPageRoutingModule } from './settings-routing.module';
+import { EpicAppointsPageRoutingModule } from './epic-appoints-routing.module';
 import { AppointmentsStoreModule } from '@appointment/store';
 import { TranslationsModule } from '@appointment/translations';
+
+//UI components
+import { UIModule } from '@appointment/ui';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-
-    SettingsPageRoutingModule,
+    EpicAppointsPageRoutingModule,
     AppointmentsStoreModule,
     TranslationsModule,
+    UIModule,
   ],
-  declarations: [SettingsPage],
+  declarations: [EpicAppointsPage],
 })
-export class SettingsPageModule {}
+export class EpicAppointsPageModule {}

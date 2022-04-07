@@ -25,6 +25,8 @@
   "setting.modules.label": "Modules",
   "setting.users.label": "Users",
   "setting.language.label": "Español",
+  "setting.notifications.label": "Notifications",
+  "setting.avaliable.label": "Avaliable",
   "login.already-user.label": "Already a user?",
   "login.sign-in.label": "Sign In",
   "login.sign-up.label": "Sign Up",

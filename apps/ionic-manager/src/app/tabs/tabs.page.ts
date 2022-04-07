@@ -21,10 +21,8 @@ export class TabsPage implements OnInit {
     this.onSiteLanguageSubscription();
   }
 
-  segmentChanged(event: any): void {}
-
-  gotToSettings(): void {
-    this.privateFlowManager.navigateTo('private/settings');
+  gotToSettings(path: string): void {
+    this.privateFlowManager.navigateTo('settings/' + path);
   }
 
   changeSiteLanguage(): void {

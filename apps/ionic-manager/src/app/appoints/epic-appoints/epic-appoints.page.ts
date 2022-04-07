@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { BaseAppointmentsFacade } from '@appointment/store';
 
 @Component({
-  selector: 'appointment-appoints',
-  templateUrl: 'appoints.page.html',
-  styleUrls: ['appoints.page.scss'],
+  selector: 'appointment-epic-appoints',
+  templateUrl: 'epic-appoints.page.html',
 })
-export class AppointsPage {
+export class EpicAppointsPage {
   constructor(public appointmentsFacade: BaseAppointmentsFacade) {}
 
   ionViewWillEnter(): void {

@@ -5,7 +5,7 @@ export class PrivateFlowManager {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   navigateTo(path: string): void {
-    console.log('navigation a no se');
-    this.router.navigate(['private/settings']);
+    console.log('navigation a : ' + path);
+    this.router.navigate(['private/' + path]);
   }
 }

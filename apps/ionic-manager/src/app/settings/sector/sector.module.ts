@@ -2,22 +2,24 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { SettingsPage } from './settings.page';
-
-import { SettingsPageRoutingModule } from './settings-routing.module';
+import { SectorPage } from './sector.page';
+import { SectorPageRoutingModule } from './sector-routing.module';
 import { AppointmentsStoreModule } from '@appointment/store';
 import { TranslationsModule } from '@appointment/translations';
+
+//UI components
+import { UIModule } from '@appointment/ui';
 
 @NgModule({
   imports: [
     IonicModule,
     CommonModule,
     FormsModule,
-
-    SettingsPageRoutingModule,
+    SectorPageRoutingModule,
     AppointmentsStoreModule,
     TranslationsModule,
+    UIModule,
   ],
-  declarations: [SettingsPage],
+  declarations: [SectorPage],
 })
-export class SettingsPageModule {}
+export class SectorPageModule {}

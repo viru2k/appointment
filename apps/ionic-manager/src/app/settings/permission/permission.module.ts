@@ -2,10 +2,8 @@ import { IonicModule } from '@ionic/angular';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AppointsPage } from './appoints.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
-import { AppointsPageRoutingModule } from './appoints-routing.module';
+import { PermissionsPage } from './permission.page';
+import { PermissionsPageRoutingModule } from './permission-routing.module';
 import { AppointmentsStoreModule } from '@appointment/store';
 import { TranslationsModule } from '@appointment/translations';
 
@@ -17,12 +15,11 @@ import { UIModule } from '@appointment/ui';
     IonicModule,
     CommonModule,
     FormsModule,
-    ExploreContainerComponentModule,
-    AppointsPageRoutingModule,
+    PermissionsPageRoutingModule,
     AppointmentsStoreModule,
     TranslationsModule,
     UIModule,
   ],
-  declarations: [AppointsPage],
+  declarations: [PermissionsPage],
 })
-export class AppointsPageModule {}
+export class PermissionsPageModule {}
