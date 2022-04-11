@@ -18,7 +18,7 @@
     <ion-content
       *ngIf="(appointmentsFacade.appointmentsList$ |async) as appointmentList; else noResultsFound"
     >
-      <ion-list *ngFor="let item of appointmentList">
+      <ion-list *ngFor="let item of appointmentList" class="tickets">
         <app-appointment-item [item]="item"> </app-appointment-item>
       </ion-list>
     </ion-content>
@@ -33,7 +33,7 @@
     </ng-template>
   </ng-container>
 
-  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="mb-3">
     <ion-fab-button (click)="newAppointment()">
       <ion-icon name="add"></ion-icon>
     </ion-fab-button>

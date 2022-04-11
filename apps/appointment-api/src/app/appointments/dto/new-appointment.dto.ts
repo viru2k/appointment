@@ -13,6 +13,10 @@ export class NewAppointent {
   @ApiProperty({ type: 'string', required: false })
   @IsNotEmpty()
   description: string;
+  @ApiProperty({ type: 'number', required: false })
+  number: number;
+  @ApiProperty({ type: 'string', required: false })
+  ticket: string;
 
   @ApiProperty({
     enum: AppointmentStatusEnums,

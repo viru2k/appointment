@@ -9,6 +9,10 @@ export class Appointment {
   id: string;
   @Column()
   description: string;
+  @Column()
+  number: number;
+  @Column()
+  ticket: string;
   @Column({
     type: 'enum',
     enum: AppointmentStatusEnums,

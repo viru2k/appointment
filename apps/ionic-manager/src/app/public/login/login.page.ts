@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { BaseLoginFacade } from '@appointment/store';
-import { AuthUser } from '../../../../../appointment-api/src/app/auth/dto/auth-user.dto';
+import { AuthUser } from '@appointment/models';
+import { BaseLoginFacade, BaseSharedFacade } from '@appointment/store';
+
+import { TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'appointment-login',
@@ -8,21 +10,37 @@ import { AuthUser } from '../../../../../appointment-api/src/app/auth/dto/auth-u
   styleUrls: ['login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  constructor(public loginFacade: BaseLoginFacade) {
+  currentLanguage = 'es';
+
+  constructor(
+    public loginFacade: BaseLoginFacade,
+    private sharedFacade: BaseSharedFacade,
+    private service: TranslocoService
+  ) {
     this.setAuthTokenSubscription();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.onSiteLanguageSubscription();
+  }
 
   doLogin(): void {
-    this.loginFacade.updateUserName('user1');
-    this.loginFacade.updatePassword('Brida1234');
+    this.loginFacade.updateUserName('UserTesting1');
+    this.loginFacade.updatePassword('123456Test');
     const user: AuthUser = {
-      username: 'user1',
-      email: 'gastonvillafane@gmail.com',
-      password: 'Brida1234',
+      username: 'UserTesting1',
+      email: 'usertest1@gmail.com',
+      password: '123456Test',
     };
     this.loginFacade.signIn(user);
+  }
+
+  changeSiteLanguage(): void {
+    this.currentLanguage === 'es'
+      ? (this.currentLanguage = 'en')
+      : (this.currentLanguage = 'es');
+    console.log(this.currentLanguage);
+    this.sharedFacade.setLanguage(this.currentLanguage);
   }
 
   private setusernameSubscription(): void {}
@@ -38,5 +56,11 @@ export class LoginPage implements OnInit {
       }
     });
     this.doLogin();
+  }
+
+  private onSiteLanguageSubscription(): void {
+    this.sharedFacade.language$.subscribe((language: string) => {
+      this.service.setActiveLang(language);
+    });
   }
 }

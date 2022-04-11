@@ -1,0 +1,89 @@
+$gray: rgb(247, 247, 247);
+
+.shell {
+  width: 100%;
+  display: table;
+
+  & > * {
+    display: table-cell;
+  }
+}
+
+$ticket-width: 21rem;
+$ticket-max-width: 27rem;
+$ticket-height: 16rem;
+$tickets-padding: 1rem;
+
+.tickets {
+  margin: auto auto auto;
+  padding: (2 * $tickets-padding) $tickets-padding;
+
+  width: 23rem;
+  height: $ticket-height + (2 * $tickets-padding);
+  justify-content: center;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+.ticket {
+  width: $ticket-width;
+  max-width: $ticket-max-width;
+  height: $ticket-height;
+  font-size: large;
+  margin: 1rem;
+  padding: 0.1rem 1rem 1rem;
+
+  text-align: center;
+
+  background: #fff;
+  border: 1px solid darken($gray, 10%);
+  border-radius: 5px;
+
+  white-space: normal;
+
+  transition: all 0.1s ease-in-out, width 0.1s ease-in-out;
+
+  p {
+    margin: 0;
+  }
+
+  &:hover {
+    margin-top: -0.5rem;
+    margin-bottom: -0.1rem;
+    height: $ticket-height + 1rem;
+    box-shadow: 0 0 21px rgb(220, 220, 220);
+    transition: all 0.1s ease-in-out, width 0.1s ease-in-out;
+  }
+}
+
+.ticket-container {
+  position: relative;
+  height: 100%;
+}
+
+.ticket-name {
+  h3 {
+    $font-size: 1.25rem;
+
+    color: #444;
+    vertical-align: middle;
+    text-align: center;
+    height: 4 * $font-size;
+    font-size: $font-size;
+    line-height: 1.3;
+  }
+}
+
+.ticket-number {
+  --color: var(--ion-text-color, #000);
+  margin: 0px;
+  padding: 0px;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.ticket-action {
+  margin-top: 3rem;
+}

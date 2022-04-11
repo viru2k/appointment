@@ -35,11 +35,13 @@ export class AppointmentRepository extends Repository<Appointment> {
 
   async setAppointment(newAppointent: NewAppointent): Promise<Appointment> {
     console.log(newAppointent);
-    const { description, status, user } = newAppointent;
+    const { description, status, user, ticket, number } = newAppointent;
     const newAppointentElement = this.create({
       description,
       status,
       user,
+      ticket,
+      number,
     });
     await this.save(newAppointentElement);
     return newAppointentElement;

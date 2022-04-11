@@ -27,3 +27,13 @@ import { AuthModule } from './auth/auth.module';
   providers: [AppService],
 })
 export class AppModule {}
+
+//*******************************HOW TO GENERATE API ********************************** */
+
+/*  LAUNCH  THE API SERVER
+ NAVIGATE TO http://localhost:3333/api-json AND DOWNLOAD THE JSON FILE
+ REPLACE THE CONTENT for the file swagger/generated-api.json  WITH THE CONTENT OF THE FILE DOWNLOADED
+ 
+ LAUNCH npm run openapi-generate
+ FILL WITH PREFERED ENDPOINT I.E  private _rootUrl: string = 'http://localhost:3333/api';  at appointments/libs/api/base-service.ts
+ */

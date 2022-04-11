@@ -160,6 +160,8 @@
         "properties": {
           "id": { "type": "string" },
           "description": { "type": "string" },
+          "number": { "type": "number" },
+          "ticket": { "type": "string" },
           "status": {
             "type": "array",
             "items": {
@@ -181,6 +183,8 @@
         "type": "object",
         "properties": {
           "description": { "type": "string" },
+          "number": { "type": "number" },
+          "ticket": { "type": "string" },
           "status": {
             "type": "array",
             "items": {

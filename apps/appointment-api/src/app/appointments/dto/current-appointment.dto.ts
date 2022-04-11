@@ -7,6 +7,10 @@ export class CurrentAppointment {
   id: string;
   @ApiProperty({ type: 'string', required: false })
   description: string;
+  @ApiProperty({ type: 'number', required: false })
+  number: number;
+  @ApiProperty({ type: 'string', required: false })
+  ticket: string;
   @ApiProperty({
     enum: AppointmentStatusEnums,
     isArray: true,
