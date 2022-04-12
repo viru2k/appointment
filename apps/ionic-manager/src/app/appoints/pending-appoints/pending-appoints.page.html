@@ -1,0 +1,41 @@
+<ion-content [fullscreen]="true">
+  <ng-container *transloco="let tran">
+    <ion-header [translucent]="true">
+      <ion-toolbar>
+        <!-- ONLY KEEPED FOR REFERENCY -->
+        <!--         <ion-buttons slot="start">
+          <ion-back-button
+            defaultHref="main"
+            text=" {{tran('scopeTranslation.common.label.back')}}"
+          ></ion-back-button>
+        </ion-buttons> -->
+        <ion-title
+          >{{ 'scopeTranslation.appointment.menu.title.header' | transloco
+          }}</ion-title
+        >
+      </ion-toolbar>
+    </ion-header>
+    <ion-content
+      *ngIf="(appointmentsFacade.appointmentsList$ |async) as appointmentList; else noResultsFound"
+    >
+      <ion-list *ngFor="let item of appointmentList" class="tickets">
+        <app-appointment-item [item]="item"> </app-appointment-item>
+      </ion-list>
+    </ion-content>
+
+    <ng-template #noResultsFound>
+      <ion-card>
+        <ion-label
+          >{{ 'scopeTranslation.common.general.no-content' | transloco
+          }</ion-label
+        >
+      </ion-card>
+    </ng-template>
+  </ng-container>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" class="mb-3">
+    <ion-fab-button (click)="newAppointment()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

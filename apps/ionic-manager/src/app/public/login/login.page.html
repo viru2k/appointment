@@ -1,3 +1,33 @@
+<div class="container">
+  <div class="form">
+    <div class="header">
+      <p (click)="changeSiteLanguage()">
+        <ion-icon
+          slot="start"
+          [ios]="'chatbubbles' + '-outline'"
+          [md]="'chatbubbles' + '-sharp'"
+        ></ion-icon>
+
+        {{ 'scopeTranslation.setting.language.label' | transloco }}
+      </p>
+    </div>
+    <input
+      placeholder=" {{ 'scopeTranslation.login.username.label' | transloco }}"
+      type="text"
+      spellcheck="false"
+    /><br />
+    <input
+      class="psw"
+      placeholder=" {{ 'scopeTranslation.login.password.label' | transloco }}"
+      type="password"
+      spellcheck="false"
+    />
+    <button class="btn" [routerLink]="['/private/appoints']">
+      {{ 'scopeTranslation.login.sign-in.label' | transloco }}
+    </button>
+  </div>
+</div>
+<!-- 
 <ion-content class="auth-form">
   <ion-grid>
     <ion-row class="ion-align-items-center">
@@ -33,4 +63,4 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-</ion-content>
+</ion-content> -->
