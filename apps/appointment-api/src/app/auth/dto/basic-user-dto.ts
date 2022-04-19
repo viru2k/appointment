@@ -6,7 +6,7 @@ import { IsNotEmpty } from 'class-validator';
 // Enum
 import { RoleEnums } from '../enums/role-enums';
 export class BasicUser {
-  @ApiProperty({ type: 'string', required: true })
+  @ApiProperty({ type: 'string', required: false })
   @IsNotEmpty()
   id: string;
   @ApiProperty({ type: 'string', required: false })
@@ -16,7 +16,7 @@ export class BasicUser {
   @ApiProperty({
     enum: RoleEnums,
     isArray: true,
-    required: true,
+    required: false,
   })
   role: RoleEnums;
 }
