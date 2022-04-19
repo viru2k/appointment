@@ -1,0 +1,8 @@
+export enum ModulePermissionEnum {
+  ONLY_APPOINTS = 'ONLY_APPOINTS',
+  EPIC = 'EPIC',
+  SETTINGS = 'SETTINGS',
+  EDIT_PROFILE = 'EDIT_PROFILE',
+  MEDIA = 'MEDIA',
+  EDIT_APPOINTS = 'EDIT_APPOINTS',
+}

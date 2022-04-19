@@ -43,6 +43,7 @@ export class AppointmentRepository extends Repository<Appointment> {
       ticket,
       number,
     });
+    console.log('newAppointentElement', newAppointentElement);
     await this.save(newAppointentElement);
     return newAppointentElement;
   }
